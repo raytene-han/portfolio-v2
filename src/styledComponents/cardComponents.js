@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 
 const StyledSection = styled.div`
+  margin-top: 1em;
   margin-bottom: 16em;
   display: flex;
   justify-content: center;
@@ -13,11 +14,12 @@ const StyledTabsCard = styled.div`
   width: 60%;
   height: 520px;
   border-radius: 20px;
-  background: white;
+  background: var(--lightest);
   overflow: hidden;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
+  align-items: flex-start;
 
 
   nav {
@@ -30,7 +32,7 @@ const StyledTabsCard = styled.div`
   }
 
   ul {
-    display: flex;
+    display: block;
     width: 100%;
     list-style: none;
     padding: 0;
@@ -38,7 +40,7 @@ const StyledTabsCard = styled.div`
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-size: 1.5em;
-
+    // border-left: 2px solid var(--dark);
   }
 
   li {
@@ -58,10 +60,16 @@ const StyledTabsCard = styled.div`
     flex: 1;
     min-width: 0;
     user-select: none;
+    transition: all 0.25s ease;
 
-    &.selected {
-      background: var(--accent);
+    &:hover {
+      color: var(--accent);
     }
+    &.selected {
+      color: var(--accent);
+    }
+
+
   }
 
   main {

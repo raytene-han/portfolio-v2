@@ -28,7 +28,7 @@ function Homepage() {
       <About />
       <TabCard tabs={projects}/>
       <Contact />
-      <Footer>© Raytene Han 2022</Footer>
+      <Footer>©  Raytene  Han  2022</Footer>
     </div>
   );
 }

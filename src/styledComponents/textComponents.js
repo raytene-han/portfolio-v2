@@ -8,7 +8,7 @@ const Title = styled.h1`
 `;
 
 const Footer = styled.small`
-  letter-spacing: 0.15em;
+  margin-bottom: 1em;
 `;
 
 

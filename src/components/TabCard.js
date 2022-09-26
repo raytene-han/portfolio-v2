@@ -34,11 +34,17 @@ function TabsCard({ tabs }) {
                 onClick={() => setSelectedTab(tab)}
               >
                 {tab}
-                {tab === selectedTab ? (
-                  <motion.div className="underline" layoutId="underline" />
-                ) : null}
+                {/* {tab === selectedTab ? (
+                  ) : null} */}
               </li>
             ))}
+            <motion.span className="underline"
+            layout
+            transition={{
+              layout: {
+                duration: 1.5,
+              },
+            }}/>
           </ul>
         </nav>
         <main>
