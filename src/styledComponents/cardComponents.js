@@ -1,26 +1,47 @@
 import styled from "styled-components";
 
+const Container = styled.div`
+  padding-top: 32em;
+  padding-bottom: 48em;
+  border: 2px solid green;
+`
 
-const StyledSection = styled.div`
-  margin-top: 1em;
-  margin-bottom: 16em;
+const StyledSectionLeft = styled.div`
+  // margin-top: 24em;
+  // margin-bottom: 48em;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   flex-wrap: wrap;
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid red;
+`;
+
+const StyledSectionRight = styled.div`
+  // margin-top: 24em;
+  // margin-bottom: 48em;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid red;
 `;
 
 const StyledTabsCard = styled.div`
-  width: 60%;
+  width: 100%;
   height: 520px;
-  border-radius: 20px;
+  border-radius: 0;
   background: var(--lightest);
   overflow: hidden;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   display: flex;
-  // flex-direction: column;
-  align-items: flex-start;
-
+  flex-direction: column;
+  border: 2px solid red;
 
   nav {
     background: #fdfdfd;
@@ -32,7 +53,7 @@ const StyledTabsCard = styled.div`
   }
 
   ul {
-    display: block;
+    display: flex;
     width: 100%;
     list-style: none;
     padding: 0;
@@ -44,7 +65,7 @@ const StyledTabsCard = styled.div`
   }
 
   li {
-    border-radius: 15px;
+    border-radius: 10px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     width: 100%;
@@ -87,6 +108,16 @@ const StyledTabsCard = styled.div`
   }
 `;
 
+const StyledProjectInfoCard = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  img {
+    width: 20em;
+  }
+
+`;
+
 const StyledContactCard = styled.div`
   a {
     margin: 2em;
@@ -99,4 +130,10 @@ const StyledContactCard = styled.div`
 
 
 
-export { StyledSection, StyledTabsCard, StyledContactCard };
+export {
+  Container,
+  StyledSectionLeft,
+  StyledSectionRight,
+  StyledTabsCard,
+  StyledProjectInfoCard,
+  StyledContactCard };
