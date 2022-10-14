@@ -7,7 +7,6 @@ import Experience from "./Experience";
 import TabCard from "./TabCard";
 import Contact from "./Contact";
 import { Container, StyledSectionLeft } from "../styledComponents/cardComponents";
-import { useScrollToHash } from "../utils/scroll";
 import { DownArrow } from "./NavArrows";
 
 const projects = ["Jobly", "ShareBnb", "Warbler"];
@@ -33,7 +32,7 @@ function Homepage() {
         >
           <Title> Hi, I'm Raytene. </Title>
           <div className="break"></div>
-          <Subtitle>Full stack developer</Subtitle>
+          <Subtitle>Full stack developer. Cat enthusiast.</Subtitle>
           <div className="break"></div>
           <img className="portrait" src="/IMG_0225.jpeg" alt="avatar" />
         </StyledSectionLeft>
