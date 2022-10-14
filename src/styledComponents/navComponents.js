@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
 import styled from "styled-components";
+import { Link, animateScroll as scroll, scrollSpy } from "react-scroll";
 
 const Navbar = styled.nav`
 
@@ -9,13 +10,15 @@ const Navbar = styled.nav`
   justify-content: space-between;
   align-items: center;
   font-size: 1em;
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
+  // position: -webkit-sticky; /* Safari */
+  // position: sticky;
   top: 0;
   background: var(--darkest);
   z-index: 1;
   height: 3em;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const NavLinks = styled.ul`
@@ -23,13 +26,11 @@ const NavLinks = styled.ul`
   display: flex;
 `;
 
-const StyledHashLink = styled(NavHashLink)`
+const StyledHashLink = styled(Link)`
   &:hover{
     font-weight: bold;
+    cursor: pointer;
   };
-  &:active{
-    font-weight:bold;
-  }
 
   display: inline-flex;
   flex-direction: column;
