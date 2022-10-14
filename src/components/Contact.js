@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 import { Title } from "../styledComponents/textComponents";
-import { StyledContactCard, StyledSection } from "../styledComponents/cardComponents";
+import { StyledContactCard, StyledSectionRight } from "../styledComponents/cardComponents";
 
 
 const links = [
@@ -26,11 +26,11 @@ function Contact() {
   const scrollIntoView = {
     transform: isInView ? "none" : "translateY(100px)",
     opacity: isInView ? 1 : 0,
-    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.25s"
   };
 
   return (
-    <StyledSection
+    <StyledSectionRight
       id="contact"
       ref={ref}
       style={scrollIntoView}>
@@ -43,7 +43,7 @@ function Contact() {
           </a>
         ))}
       </StyledContactCard>
-    </StyledSection>
+    </StyledSectionRight>
   );
 }
 

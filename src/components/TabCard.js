@@ -2,8 +2,9 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { Title } from "../styledComponents/textComponents";
 import {
-  StyledSection,
+  StyledSectionLeft,
   StyledTabsCard,
+  StyledProjectInfoCard,
 } from "../styledComponents/cardComponents";
 
 
@@ -16,35 +17,36 @@ function TabsCard({ tabs }) {
   const scrollIntoView = {
     transform: isInView ? "none" : "translateY(100px)",
     opacity: isInView ? 1 : 0,
-    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.25s"
   };
 
   return (
-    <StyledSection className="tabs" id="projects"
-    ref={ref}
-    style={scrollIntoView}
+    <StyledSectionLeft className="tabs" id="projects"
+      ref={ref}
+      style={scrollIntoView}
     >
-      <Title> hello, this is the Tabs section </Title>
+      <Title> Portfolio </Title>
       <StyledTabsCard>
         <nav>
           <ul>
-            {tabs.map(tab => (
+            {tabs.map((tab, idx) => (
               <li key={tab}
-                className={tab === selectedTab ? "selected" : ""}
+                className={`tab-${idx} ${tab === selectedTab ? "selected" : ""}`}
                 onClick={() => setSelectedTab(tab)}
               >
                 {tab}
-                {/* {tab === selectedTab ? (
-                  ) : null} */}
+                {tab === selectedTab ? (
+                  <motion.div className="underline"
+                    layoutId="underline"
+                    transition={{
+                      layout: {
+                        duration: 0.35,
+                      },
+                    }} />
+                ) : null}
               </li>
             ))}
-            <motion.span className="underline"
-            layout
-            transition={{
-              layout: {
-                duration: 1.5,
-              },
-            }}/>
+
           </ul>
         </nav>
         <main>
@@ -57,14 +59,18 @@ function TabsCard({ tabs }) {
               transition={{ duration: 0.2 }}
             >
               {selectedTab ? selectedTab : "😋"}
+              <StyledProjectInfoCard>
+                <img src="/up_arrow_icon.png" alt="proj" />
               <p>Some details about what it's</p>
               <p>React, Express, Node.js</p>
               <a href="/">Link to Repo</a>
+
+              </StyledProjectInfoCard>
             </motion.div>
           </AnimatePresence>
         </main>
       </StyledTabsCard>
-    </StyledSection>
+    </StyledSectionLeft>
   );
 }
 
