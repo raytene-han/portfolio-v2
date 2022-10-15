@@ -1,9 +1,37 @@
-import { Navbar, Logo, NavLinks, StyledHashLink } from "../styledComponents/navComponents";
+import { Navbar, Logo, StyledHashLink } from "../styledComponents/navComponents";
 // import '../App.css';
+import { motion } from "framer-motion";
 
 /** Navigation Component
  *
  */
+
+const navVariants = {
+  hidden: {
+    opacity: 0
+  },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 }
+  }
+};
+
+const navItemVariants = {
+  hidden: {
+    opacity: 0,
+    y: "-2vw",
+    transition: {
+      y: { type: "spring", stiffness: 100 }
+    }
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      y: { type: "spring", stiffness: 100 }
+    }
+  }
+};
 
 function Navigation() {
 
@@ -11,8 +39,12 @@ function Navigation() {
     <div className="navbar">
       <Navbar>
         <Logo></Logo>
-        <NavLinks className="menu">
-        <li>
+        <motion.ul
+          className="menu"
+          variants={navVariants}
+          initial="hidden"
+          animate="visible">
+          <motion.li variants={navItemVariants}>
             <StyledHashLink
               activeClass="active"
               to="about"
@@ -25,8 +57,8 @@ function Navigation() {
             >
               About
             </StyledHashLink>
-          </li>
-          <li>
+          </motion.li>
+          <motion.li variants={navItemVariants}>
             <StyledHashLink
               activeClass="active"
               to="projects"
@@ -39,8 +71,8 @@ function Navigation() {
             >
               Projects
             </StyledHashLink>
-          </li>
-          <li>
+          </motion.li>
+          <motion.li variants={navItemVariants}>
             <StyledHashLink
               to="experience"
               smooth={true}
@@ -52,8 +84,8 @@ function Navigation() {
             >
               Experience
             </StyledHashLink>
-          </li>
-          <li>
+          </motion.li>
+          <motion.li variants={navItemVariants}>
             <StyledHashLink
               activeClass="active"
               to="contact"
@@ -66,8 +98,8 @@ function Navigation() {
             >
               Contact
             </StyledHashLink>
-          </li>
-        </NavLinks>
+          </motion.li>
+        </motion.ul>
       </Navbar>
     </div>
   );

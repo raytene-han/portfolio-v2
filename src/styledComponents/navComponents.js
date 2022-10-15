@@ -19,11 +19,11 @@ const Navbar = styled.nav`
   max-width: 968px;
   margin-left: auto;
   margin-right: auto;
-`;
 
-const NavLinks = styled.ul`
-  list-style-type: none;
-  display: flex;
+  ul {
+    list-style-type: none;
+    display: flex;
+  }
 `;
 
 const StyledHashLink = styled(Link)`
@@ -65,4 +65,4 @@ const Logo = styled.div`
 
 
 
-export {  Navbar, NavLinks, StyledNavLink, StyledHashLink, Logo };
+export {  Navbar, StyledNavLink, StyledHashLink, Logo };
