@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  padding-top: 32em;
-  padding-bottom: 48em;
+  padding-top: 25vh;
+  padding-bottom: 25vh;
   border: 2px solid green;
 `
 
 const StyledSectionLeft = styled.div`
-  // margin-top: 24em;
-  // margin-bottom: 48em;
   display: flex;
   justify-content: left;
   align-items: center;
@@ -20,8 +18,6 @@ const StyledSectionLeft = styled.div`
 `;
 
 const StyledSectionRight = styled.div`
-  // margin-top: 24em;
-  // margin-bottom: 48em;
   display: flex;
   justify-content: right;
   align-items: center;

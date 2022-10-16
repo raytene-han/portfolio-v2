@@ -3,7 +3,7 @@ import { useInView } from "framer-motion";
 
 import { Title, Subtitle, Footer } from "../styledComponents/textComponents";
 import About from "./About";
-import Experience from "./Experience";
+import Experience from "./Timeline";
 import TabCard from "./TabCard";
 import Contact from "./Contact";
 import { Container, StyledSectionLeft } from "../styledComponents/cardComponents";

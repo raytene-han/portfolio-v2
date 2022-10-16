@@ -34,7 +34,7 @@
 
 body {
   --accent: #e4d9ff;
-  --lightest: #fafaff;
+  --lightest: #efeff7;
   --darkest: #1e2749;
   --dark: #273469;
   width: 100vw;
@@ -47,11 +47,11 @@ body {
 }
 
 .navbar {
-  background: var(--darkest);
+  background: var(--lightest);
   position: sticky;
   position: -webkit-sticky; /* Safari */
   top: 0;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 15px 0px;
   z-index: 1;
 }
 

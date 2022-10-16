@@ -20,15 +20,12 @@ const navItemVariants = {
   hidden: {
     opacity: 0,
     y: "-2vw",
-    transition: {
-      y: { type: "spring", stiffness: 100 }
-    }
   },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      y: { type: "spring", stiffness: 100 }
+      y: { type: "spring", stiffness: 80 }
     }
   }
 };
@@ -38,7 +35,15 @@ function Navigation() {
   return (
     <div className="navbar">
       <Navbar>
-        <Logo></Logo>
+        <Logo>
+          <StyledHashLink
+            to=""
+            smooth={true}
+            spy={true}
+          >
+            Raytene Han
+          </StyledHashLink>
+        </Logo>
         <motion.ul
           className="menu"
           variants={navVariants}
