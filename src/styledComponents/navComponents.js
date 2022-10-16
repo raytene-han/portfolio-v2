@@ -13,7 +13,7 @@ const Navbar = styled.nav`
   // position: -webkit-sticky; /* Safari */
   // position: sticky;
   top: 0;
-  background: var(--darkest);
+  background: var(--lightest);
   z-index: 1;
   height: 3em;
   max-width: 968px;
@@ -36,7 +36,7 @@ const StyledHashLink = styled(Link)`
   flex-direction: column;
   align-items: center;
   padding: 1rem 1.25rem;
-  color: var(--accent);
+  color: var(--dark);
   text-decoration: none;
 `;
 
@@ -52,15 +52,12 @@ const StyledNavLink = styled(NavLink)`
   flex-direction: column;
   align-items: center;
   padding: 1rem 1.25rem;
-  color: var(--accent);
+  color: var(--dark);
   text-decoration: none;
 `;
 
 const Logo = styled.div`
-  width: 10px;
-  height: 10px;
-  background-color: pink;
-  margin: 0 0 0 0.5em;
+
 `;
 
 
