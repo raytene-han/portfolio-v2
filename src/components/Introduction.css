@@ -1,0 +1,15 @@
+.intro-section{
+    display: flex;
+    flex-direction: row;
+}
+
+.intro-text {
+    margin: 0 2em;
+}
+
+.portrait {
+    width: 14em;
+    height: 16em;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;}

@@ -1,42 +1,59 @@
-import { useRef } from "react";
-import { useInView } from "framer-motion";
-
-import { Title, Subtitle, Footer } from "../styledComponents/textComponents";
+import { Footer } from "../styledComponents/textComponents";
+import Introduction from "./Introduction";
 import About from "./About";
 import Experience from "./Timeline";
 import TabCard from "./TabCard";
 import Contact from "./Contact";
-import { Container, StyledSectionLeft } from "../styledComponents/cardComponents";
-import { DownArrow } from "./NavArrows";
+import { Container } from "../styledComponents/cardComponents";
 
-const projects = ["Jobly", "ShareBnb", "Warbler"];
-const about = ["Background", "Interests"];
+const projects = [
+  {
+    name: "Jobly",
+    description: "A web app that allows users to search for and apply to jobs.",
+    technologies: [
+      "React",
+      "Bootstrap",
+      "Bcrypt",
+      "Express",
+      "PostgreSQL"
+    ],
+    demo: "https://jobby-lobby.surge.sh",
+    github: "https://github.com/msunnnnn/react-jobly"
+  },
+  {
+    name: "ShareBnb",
+    description: "An Airbnb clone that allows users to post and book listings.",
+    technologies: [
+      "React",
+      "Bootstrap",
+      "Flask",
+      "SQLAlchemy",
+      "PostgreSQL"
+    ],
+    demo: "https://sharebnb-rh.surge.sh",
+    github: "https://github.com/ndrewjensen/share-bnb-frontend"
+  },
+  {
+    name: "Warbler",
+    description: "A Twitter clone where users can 'warble' about what's happening.",
+    technologies: [
+      "Flask",
+      "WTForms",
+      "Bootstrap",
+      "Jinja",
+      "PostgreSQL"
+    ],
+    demo: "https://warblerrh.herokuapp.com",
+    github: "https://github.com/raytene-han/flask-warbler"
+  }
+]
 
 function Homepage() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  // useScrollToHash();
-
-  const scrollIntoView = {
-    transform: isInView ? "none" : "translateY(50px)",
-    opacity: isInView ? 1 : 0,
-    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.25s"
-  };
 
   return (
     <>
       <Container id="">
-        <StyledSectionLeft id="homepage"
-          ref={ref}
-          style={scrollIntoView}
-        >
-          <Title> Hi, I'm Raytene. </Title>
-          <div className="break"></div>
-          <Subtitle>Full stack developer. Cat enthusiast.</Subtitle>
-          <div className="break"></div>
-          <img className="portrait" src="/IMG_0225.jpeg" alt="avatar" />
-        </StyledSectionLeft>
-        <DownArrow />
+        <Introduction />
       </Container>
       <Container id="about">
         <About />

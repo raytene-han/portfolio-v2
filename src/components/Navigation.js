@@ -56,7 +56,7 @@ function Navigation() {
               smooth={true}
               spy={true}
               hashSpy={true}
-              // offset={-20}
+              offset={100}
               data-text="About"
               className="menu-link"
             >
@@ -70,7 +70,7 @@ function Navigation() {
               smooth={true}
               spy={true}
               hashSpy={true}
-              // offset={-80}
+              offset={100}
               data-text="Projects"
               className="menu-link"
             >
@@ -83,7 +83,7 @@ function Navigation() {
               smooth={true}
               spy={true}
               hashSpy={true}
-              // offset={-80}
+              offset={100}
               data-text="Experience"
               className="menu-link"
             >
@@ -97,7 +97,7 @@ function Navigation() {
               smooth={true}
               spy={true}
               hashSpy={true}
-              // offset={-80}
+              offset={100}
               data-text="Contact"
               className="menu-link"
             >

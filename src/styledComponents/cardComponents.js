@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Container = styled.div`
   padding-top: 25vh;
   padding-bottom: 25vh;
-  border: 2px solid green;
+  // border: 2px solid green;
 `
 
 const StyledSectionLeft = styled.div`
@@ -14,7 +14,8 @@ const StyledSectionLeft = styled.div`
   max-width: 968px;
   margin-left: auto;
   margin-right: auto;
-  border: 2px solid red;
+  // border: 2px solid red;
+
 `;
 
 const StyledSectionRight = styled.div`
@@ -25,22 +26,22 @@ const StyledSectionRight = styled.div`
   max-width: 968px;
   margin-left: auto;
   margin-right: auto;
-  border: 2px solid red;
+  // border: 2px solid red;
 `;
 
 const StyledTabsCard = styled.div`
   width: 100%;
-  height: 520px;
+  height: 460px;
   border-radius: 0;
   background: var(--lightest);
   overflow: hidden;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   display: flex;
   flex-direction: column;
-  border: 2px solid red;
+  // border: 2px solid red;
 
   nav {
-    background: #fdfdfd;
+    background: var(--lightest);
     padding: 5px 5px 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -48,7 +49,7 @@ const StyledTabsCard = styled.div`
     height: 44px;
   }
 
-  ul {
+  ul.tabs {
     display: flex;
     width: 100%;
     list-style: none;
@@ -60,7 +61,7 @@ const StyledTabsCard = styled.div`
     // border-left: 2px solid var(--dark);
   }
 
-  li {
+  li.tabs {
     border-radius: 10px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -83,6 +84,7 @@ const StyledTabsCard = styled.div`
       color: var(--accent);
     }
     &.selected {
+      background: var(--dark);
       color: var(--accent);
     }
 
@@ -107,9 +109,79 @@ const StyledTabsCard = styled.div`
 const StyledProjectInfoCard = styled.div`
   display: flex;
   flex-direction: row;
+  padding: 0.2em;
 
   img {
-    width: 20em;
+    width: 75%;
+    border-radius: 10px;
+    // margin-top: 0.2em;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0em;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+
+  }
+
+  p {
+    // padding-left: 0.5em;
+    display: flex;
+    color: var(--dark);
+    font-size: 0.5em;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0.7em;
+    padding: 0;
+    list-style-type: "∙";
+    list-style-position: outside;
+    color: var(--dark);
+  }
+
+  li {
+    font-size: 0.5em;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0.1em 0;
+  }
+
+  a {
+    text-decoration: none;
+    padding: 0em 0.3em;
+    color: var(--dark);
+    font-size: 0.5em;
+    margin-bottom: 6em;
+    margin-left: 0.5em;
+    margin-top: 2em;
+  }
+
+  a:visited {
+    color: var(--dark);
+  }
+
+  a:hover {
+    color: var(--accent);
+  }
+
+  .links {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .project-description {
+    background: var(--accent);
+    margin: 2em 0.7em;
+    padding: 0.5em;
+    position: absolute;
+    width: 270px;
+    left: -50%;
+
   }
 
 `;

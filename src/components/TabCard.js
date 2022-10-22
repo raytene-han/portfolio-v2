@@ -28,14 +28,14 @@ function TabsCard({ tabs }) {
       <Title> Portfolio </Title>
       <StyledTabsCard>
         <nav>
-          <ul>
+          <ul className="tabs">
             {tabs.map((tab, idx) => (
-              <li key={tab}
-                className={`tab-${idx} ${tab === selectedTab ? "selected" : ""}`}
+              <li key={tab.name}
+                className={`tabs ${tab.name === selectedTab.name ? "selected" : ""}`}
                 onClick={() => setSelectedTab(tab)}
               >
-                {tab}
-                {tab === selectedTab ? (
+                {tab.name}
+                {tab.name === selectedTab.name ? (
                   <motion.div className="underline"
                     layoutId="underline"
                     transition={{
@@ -52,18 +52,35 @@ function TabsCard({ tabs }) {
         <main>
           <AnimatePresence exitBeforeEnter>
             <motion.div
-              key={selectedTab ? selectedTab : "empty"}
+              key={selectedTab.name ? selectedTab.name : "empty"}
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -10, opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
-              {selectedTab ? selectedTab : "😋"}
               <StyledProjectInfoCard>
-                <img src="/up_arrow_icon.png" alt="proj" />
-              <p>Some details about what it's</p>
-              <p>React, Express, Node.js</p>
-              <a href="/">Link to Repo</a>
+                {/* <h3>{selectedTab ? selectedTab : "😋"}</h3> */}
+
+                <img src={`/${selectedTab.name.toLowerCase()}.png`} alt={`screenshot of ${selectedTab}`} />
+                <div>
+                  <div className="project-description">
+                    <p>{selectedTab.description}</p>
+                  </div>
+                  <div className="links">
+                    <a href={selectedTab.demo}>Live Demo</a>
+                    <a href={selectedTab.github}>Github</a>
+                  </div>
+                  <ul>
+                    {selectedTab.technologies.map(tech => (
+                      <li
+                        key={`${selectedTab.name}-${tech}`}
+                        className="project-tech"
+                      >
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
               </StyledProjectInfoCard>
             </motion.div>
