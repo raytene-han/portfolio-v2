@@ -3,10 +3,14 @@ import styled from "styled-components";
 const Container = styled.div`
   padding-top: 25vh;
   padding-bottom: 25vh;
-  // border: 2px solid green;
+
+  @media (max-width: 968px) {
+    padding: 25vh 0.5em;
+  }
+
 `
 
-const StyledSectionLeft = styled.div`
+const StyledSectionLeft = styled.section`
   display: flex;
   justify-content: left;
   align-items: center;
@@ -14,11 +18,9 @@ const StyledSectionLeft = styled.div`
   max-width: 968px;
   margin-left: auto;
   margin-right: auto;
-  // border: 2px solid red;
-
 `;
 
-const StyledSectionRight = styled.div`
+const StyledSectionRight = styled.section`
   display: flex;
   justify-content: right;
   align-items: center;
@@ -26,19 +28,17 @@ const StyledSectionRight = styled.div`
   max-width: 968px;
   margin-left: auto;
   margin-right: auto;
-  // border: 2px solid red;
 `;
 
 const StyledTabsCard = styled.div`
   width: 100%;
-  height: 460px;
+  height: clamp(23.125rem, 1.3882rem + 45.2261vw, 28.75rem);
   border-radius: 0;
   background: var(--lightest);
   overflow: hidden;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   display: flex;
   flex-direction: column;
-  // border: 2px solid red;
 
   nav {
     background: var(--lightest);
@@ -58,7 +58,6 @@ const StyledTabsCard = styled.div`
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-size: 1.5em;
-    // border-left: 2px solid var(--dark);
   }
 
   li.tabs {
@@ -81,7 +80,7 @@ const StyledTabsCard = styled.div`
     transition: all 0.25s ease;
 
     &:hover {
-      color: var(--accent);
+      color: var(--darkeraccent);
     }
     &.selected {
       background: var(--dark);
@@ -101,8 +100,20 @@ const StyledTabsCard = styled.div`
     background: var(--lightest);
   }
 
-  p {
-    // font-size: 2em;
+  @media (max-width: 768px) {
+    height: clamp(31.25rem, 8.7500rem + 62.5000vw, 38.75rem);
+
+    ul.tabs {
+      font-size: clamp(1rem, 0.7039rem + 1.3158vw, 1.5rem);
+    }
+
+    li.tabs {
+      padding: 5px 7px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    height: clamp(26.5rem, 20.8750rem + 28.1250vw, 31rem);
   }
 `;
 
@@ -110,11 +121,12 @@ const StyledProjectInfoCard = styled.div`
   display: flex;
   flex-direction: row;
   padding: 0.2em;
+  box-sizing: border-box;
 
   img {
     width: 75%;
     border-radius: 10px;
-    // margin-top: 0.2em;
+
   }
 
   div {
@@ -125,11 +137,10 @@ const StyledProjectInfoCard = styled.div`
     align-items: flex-start;
     justify-content: flex-start;
     position: relative;
-
+    box-sizing: border-box;
   }
 
   p {
-    // padding-left: 0.5em;
     display: flex;
     color: var(--dark);
     font-size: 0.5em;
@@ -147,7 +158,6 @@ const StyledProjectInfoCard = styled.div`
 
   li {
     font-size: 0.5em;
-    font-family: 'Courier New', Courier, monospace;
     margin: 0.1em 0;
   }
 
@@ -155,10 +165,10 @@ const StyledProjectInfoCard = styled.div`
     text-decoration: none;
     padding: 0em 0.3em;
     color: var(--dark);
-    font-size: 0.5em;
-    margin-bottom: 6em;
+    font-size: 0.6em;
+    margin-bottom: 5em;
     margin-left: 0.5em;
-    margin-top: 2em;
+    margin-top: 1.5em;
   }
 
   a:visited {
@@ -166,7 +176,7 @@ const StyledProjectInfoCard = styled.div`
   }
 
   a:hover {
-    color: var(--accent);
+    color: var(--darkeraccent);
   }
 
   .links {
@@ -179,8 +189,52 @@ const StyledProjectInfoCard = styled.div`
     margin: 2em 0.7em;
     padding: 0.5em;
     position: absolute;
-    width: 270px;
-    left: -50%;
+    width: 300px;
+    left: min(-85px, (100vw - 968px) / 2 - 50px);
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+
+    .project-description {
+      position: relative;
+      left: 0;
+      top: 0.2em;
+      margin: 0;
+      width: 100%;
+      padding: 0.4em;
+      min-width: 0;
+    }
+
+    img {
+      width: 100%;
+      height: fit-content;
+      min-width: 0;
+      object-fit: cover;
+    }
+
+    ul {
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0.5em 0.4em 1.5em 0.4em;
+    }
+
+    .links{
+      position: absolute;
+      bottom: 0.2em;
+      right: 0.2em;
+    }
+
+    a {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    li {
+      margin: 0 0.5em;
+    }
+
 
   }
 

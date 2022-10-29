@@ -35,7 +35,7 @@ const projects = [
   },
   {
     name: "Warbler",
-    description: "A Twitter clone where users can 'warble' about what's happening.",
+    description: "A Twitter clone where users 'warble' about what's happening.",
     technologies: [
       "Flask",
       "WTForms",
@@ -52,7 +52,7 @@ function Homepage() {
 
   return (
     <>
-      <Container id="">
+      <Container id="home">
         <Introduction />
       </Container>
       <Container id="about">

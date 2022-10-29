@@ -7,6 +7,10 @@ import {
   StyledProjectInfoCard,
 } from "../styledComponents/cardComponents";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+
 
 
 function TabsCard({ tabs }) {
@@ -60,15 +64,16 @@ function TabsCard({ tabs }) {
             >
               <StyledProjectInfoCard>
                 {/* <h3>{selectedTab ? selectedTab : "😋"}</h3> */}
-
-                <img src={`/${selectedTab.name.toLowerCase()}.png`} alt={`screenshot of ${selectedTab}`} />
+                {/* <div> */}
+                  <img src={`/${selectedTab.name.toLowerCase()}.png`} alt={`screenshot of ${selectedTab}`} />
+                {/* </div> */}
                 <div>
                   <div className="project-description">
                     <p>{selectedTab.description}</p>
                   </div>
                   <div className="links">
-                    <a href={selectedTab.demo}>Live Demo</a>
-                    <a href={selectedTab.github}>Github</a>
+                    <a href={selectedTab.demo} title="Live Demo"><FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                    <a href={selectedTab.github} title="Github"><FontAwesomeIcon icon={faGithub} /></a>
                   </div>
                   <ul>
                     {selectedTab.technologies.map(tech => (

@@ -1,7 +1,8 @@
 .timeline{
-	width:350px;
-	color:var(--darkest);
-	padding:30px 20px;
+	width:320px;
+	color:var(--dark);
+	padding:0 20px ;
+
 }
 .timeline ul{
 	list-style-type:none;
@@ -18,7 +19,7 @@
 	color:var(--dark);
 	font-size:1em;
 	font-style: italic;
-	margin: 0 0.2em;
+	margin: 0 0.8em;
 }
 .timeline ul li .content h4{
     display:inline-block;
@@ -27,12 +28,13 @@
 	padding:2px 10px;
 	font-size: 1em;
 	text-align:center;
-    color: var(--lightest);
+    color: var(--accent);
 	margin-bottom: 0.5em;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 .timeline ul li .content p{
 	font-size:1em;
-	margin: 0 0.2em;
+	margin: 0 0.8em;
 }
 
 .timeline ul li .content div>p:nth-child(3) {
@@ -44,7 +46,7 @@
 	content:'';
 	width:10px;
 	height:10px;
-	background-color:var(--dark);
+	background-color:var(--darkeraccent);
 	border-radius:50%;
 	left:-10px;
 	top:2em;

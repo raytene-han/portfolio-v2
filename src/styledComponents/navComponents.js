@@ -1,7 +1,5 @@
-import { NavLink } from "react-router-dom";
-import { NavHashLink } from "react-router-hash-link";
 import styled from "styled-components";
-import { Link, animateScroll as scroll, scrollSpy } from "react-scroll";
+import { Link } from "react-scroll";
 
 const Navbar = styled.nav`
 
@@ -13,9 +11,8 @@ const Navbar = styled.nav`
   // position: -webkit-sticky; /* Safari */
   // position: sticky;
   top: 0;
-  background: var(--lightest);
   z-index: 1;
-  height: 3em;
+  height: 3.5em;
   max-width: 968px;
   margin-left: auto;
   margin-right: auto;
@@ -24,42 +21,80 @@ const Navbar = styled.nav`
     list-style-type: none;
     display: flex;
   }
+
 `;
 
 const StyledHashLink = styled(Link)`
   &:hover{
     font-weight: bold;
     cursor: pointer;
+    color: var(--darkeraccent);
   };
 
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem 1.25rem;
+  padding: 1rem 1rem;
   color: var(--dark);
   text-decoration: none;
+
+  // @media (max-width: 768px) {
+  //   display: none;
+  // }
 `;
 
-const StyledNavLink = styled(NavLink)`
-  &:hover{
-    font-weight: bold;
-  };
-  &:active{
-    font-weight:bold;
-  }
-
+const StyledLogoLink = styled(Link)`
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem 1.25rem;
+  padding: 0 0 0 0.5em;
   color: var(--dark);
   text-decoration: none;
+  font-family: 'Ms Madi', cursive;
+  font-size: 2em;
+  cursor: pointer;
+  text-shadow: 2px 2px var(--accent);
 `;
+
 
 const Logo = styled.div`
 
 `;
 
+const StyledHamburgerMenu = styled.button`
+  padding: 1em;
+  font-size: 1em;
+  border: none;
+  background: none;
+  color: var(--dark);
+  cursor: pointer;
+  display: none;
+  position: fixed;
+  top: 0.25em;
+  right: 0.25em;
+  z-index:5;
 
+  &:hover {
+    color: var(--darkeraccent);
+  }
 
-export {  Navbar, StyledNavLink, StyledHashLink, Logo };
+  @media (max-width: 768px) {
+    display: inline;
+  }
+`;
+
+const StyledHamburgerMenuItems = styled.nav`
+
+ul {
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  list-style: none;
+  list-style-position: outside;
+  margin-bottom: 0.5em;
+}
+`;
+
+export { Navbar, StyledHashLink, StyledLogoLink, Logo, StyledHamburgerMenu, StyledHamburgerMenuItems };
