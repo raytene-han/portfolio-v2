@@ -47,8 +47,8 @@ main a p {
 
 .social {
     align-items: center;
-    font-size: 2em;
-    margin: 0 0.5em 0 0;
+    font-size: 1.5em;
+    margin: 0 0 0 0.5em;
     color: var(--dark);
 }
 
@@ -63,8 +63,17 @@ main a p {
 }
 
 @media (max-width: 540px) {
-    .portrait {
-        width: clamp()
+    .wide {
+        display: none;
+    }
+
+    .narrow {
+        top: 0;
     }
 }
 
+@media (min-width: 540px) {
+    .narrow {
+        display: none;
+    }
+}

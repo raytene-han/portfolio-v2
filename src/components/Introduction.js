@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 
+
 import { StyledSectionLeft } from "../styledComponents/cardComponents";
 import { Title, Subtitle } from "../styledComponents/textComponents";
 import "./Introduction.css";
@@ -30,12 +31,15 @@ function Introduction() {
           <Title> Hi, I'm Raytene. </Title>
           <Subtitle>Full stack developer. Cat enthusiast.</Subtitle>
           <p>I'm a full stack web developer with a background in structural engineering.</p>
-          <div>
+        <div>
+        <img className="portrait narrow" src="/IMG_0225.jpeg" alt="Raytene Han" />
+
           <Link to="/files/myfile.pdf" target="_blank" download className="resume-button">
               <p>Download Resume</p>
               <FontAwesomeIcon icon={faCloudArrowDown} />
           </Link>
-          <Link to="https://linkedin.com/in/raytene-han" className="social">
+
+        <Link to="https://linkedin.com/in/raytene-han" className="social">
             <FontAwesomeIcon icon={faLinkedin} />
           </Link>
           <Link to="https://linkedin.com/in/raytene-han" className="social">
@@ -43,7 +47,7 @@ function Introduction() {
           </Link>
           </div>
         </div>
-        <img className="portrait" src="/IMG_0225.jpeg" alt="avatar" />
+        <img className="portrait wide" src="/IMG_0225.jpeg" alt="Raytene Han" />
       </main>
     </StyledSectionLeft>
   );
