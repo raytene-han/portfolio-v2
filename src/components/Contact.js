@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 import { Title } from "../styledComponents/textComponents";
-import { StyledContactCard, StyledSectionRight } from "../styledComponents/cardComponents";
+import { StyledContactCard, StyledSectionLeft } from "../styledComponents/cardComponents";
 
 
 const links = [
@@ -30,8 +30,7 @@ function Contact() {
   };
 
   return (
-    <StyledSectionRight
-      id="contact"
+    <StyledSectionLeft
       ref={ref}
       style={scrollIntoView}>
       <StyledContactCard>
@@ -43,7 +42,7 @@ function Contact() {
           </a>
         ))}
       </StyledContactCard>
-    </StyledSectionRight>
+    </StyledSectionLeft>
   );
 }
 
