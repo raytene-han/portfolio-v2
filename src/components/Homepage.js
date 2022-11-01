@@ -58,10 +58,10 @@ function Homepage() {
       <Container id="about">
         <About />
       </Container>
-      <Container id="projects">
+      <Container id="portfolio">
         <TabCard tabs={projects} />
       </Container>
-      <Container id="experience">
+      <Container id="history">
         <Experience />
       </Container>
       <Container id="contact">

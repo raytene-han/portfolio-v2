@@ -56,7 +56,7 @@ const sideNavVariants = {
 };
 
 
-const menuLinks = ["about", "projects", "experience", "contact"];
+const menuLinks = ["about", "portfolio", "history", "contact"];
 
 function Navigation() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -101,7 +101,7 @@ function Navigation() {
                   smooth={true}
                   spy={true}
                   hashSpy={true}
-                  offset={100}
+                  offset={20}
                   data-text={link}
                   className="menu-link"
                 >
@@ -133,7 +133,7 @@ function Navigation() {
                   smooth={true}
                   spy={true}
                   hashSpy={true}
-                  offset={120}
+                  offset={30}
                   data-text={link}
                   className="menu-link"
                   onClick={() => { setIsExpanded(false); }}

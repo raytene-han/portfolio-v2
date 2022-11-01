@@ -68,10 +68,10 @@ function Experience() {
   };
 
   return (
-    <StyledSectionRight id="experience"
+    <StyledSectionRight
       ref={ref}
       style={scrollIntoView}>
-      <Title> Experience </Title>
+      <Title> History </Title>
       <div className="timeline">
         <ul>
           {work.map(company => (

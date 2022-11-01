@@ -25,7 +25,7 @@ function TabsCard({ tabs }) {
   };
 
   return (
-    <StyledSectionLeft className="tabs" id="projects"
+    <StyledSectionLeft className="tabs"
       ref={ref}
       style={scrollIntoView}
     >
