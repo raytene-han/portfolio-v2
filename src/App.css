@@ -87,9 +87,9 @@ body {
   position: fixed;
   top: 0;
   width: 50vw;
-  max-width: 12em;
+  max-width: 18em;
   height: 100vh;
-  margin-left: max(50vw, calc(100% - 12em));
+  margin-left: max(50vw, calc(100% - 18em));
   background: var(--accent);
   z-index: 2;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;

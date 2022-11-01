@@ -62,7 +62,7 @@ const Logo = styled.div`
 `;
 
 const StyledHamburgerMenu = styled.button`
-  padding: 1em;
+  /* padding: 1em; */
   font-size: 1em;
   border: none;
   background: none;
@@ -71,7 +71,7 @@ const StyledHamburgerMenu = styled.button`
   display: none;
   position: fixed;
   top: 0.25em;
-  right: 0.25em;
+  right: 1em;
   z-index:5;
 
   &:hover {

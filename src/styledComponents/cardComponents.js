@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  padding-top: 25vh;
-  padding-bottom: 25vh;
+  padding-top: 12vh;
+  padding-bottom: 12vh;
 
   @media (max-width: 968px) {
-    padding: 25vh 0.5em;
+    padding: 12vh 0.5em;
   }
 
 `
@@ -15,7 +15,7 @@ const StyledSectionLeft = styled.section`
   justify-content: left;
   align-items: center;
   flex-wrap: wrap;
-  max-width: 968px;
+  max-width: 868px;
   margin-left: auto;
   margin-right: auto;
 `;
@@ -25,7 +25,7 @@ const StyledSectionRight = styled.section`
   justify-content: right;
   align-items: center;
   flex-wrap: wrap;
-  max-width: 968px;
+  max-width: 704px;
   margin-left: auto;
   margin-right: auto;
 `;
@@ -124,7 +124,7 @@ const StyledProjectInfoCard = styled.div`
   box-sizing: border-box;
 
   img {
-    width: 75%;
+    width: 80%;
     border-radius: 10px;
 
   }
@@ -190,7 +190,11 @@ const StyledProjectInfoCard = styled.div`
     padding: 0.5em;
     position: absolute;
     width: 300px;
-    left: min(-85px, (100vw - 968px) / 2 - 50px);
+    left: min(-156px, (100vw - 868px) / 2 - 50px);
+  }
+
+  .project-description p {
+    margin: 0;
   }
 
   @media (max-width: 768px) {

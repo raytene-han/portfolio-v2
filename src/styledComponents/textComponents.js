@@ -8,9 +8,10 @@ const Title = styled.h1`
   border-bottom: solid 2px rgba(100, 100, 111, 0.2);
   text-shadow: 3px 3px var(--accent);
   margin-bottom: 0.5em;
+  min-width: 6em;
 `;
 
-const Subtitle = styled.h5`
+const Subtitle = styled.h3`
   font-size: clamp(1.2rem, 1.0224rem + 0.7401vw, 1.5rem);
   text-align: left;
   color: var(--dark);
