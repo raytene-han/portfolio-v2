@@ -4,6 +4,37 @@ import { useInView } from "framer-motion";
 import { Title } from "../styledComponents/textComponents";
 import { StyledSectionRight } from "../styledComponents/cardComponents";
 import "./About.css";
+import styled from "styled-components";
+import SkillsList from "./TechnicalSkills";
+const skills = [
+  {
+    name: "Languages",
+    skills: ["JavaScript", "TypeScript", "Python", "HTML", "CSS", "SQL", "GraphQL"]
+  },
+  {
+    name: "Libraries",
+    skills: ["React", "jQuery"]
+  },
+  {
+    name: "Frameworks",
+    skills: ["Express.js", "Flask", "Jest"]
+  },
+  {
+    name: "Database",
+    skills: ["PostgreSQL", "SQLAlchemy"]
+  }
+];
+
+const StyledSkillsCard = styled.section`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+
+const StyledAboutSection = styled.div`
+  display: flex;
+  flex-direction: row;
+`
 
 
 function About() {
@@ -21,26 +52,24 @@ function About() {
       ref={ref}
       style={scrollIntoView}>
       <Title> About Me </Title>
-      <div className="about">
-        <p>Hi, I'm Raytene, a structural engineer pivoting into software engineering. At UC San Diego, I
-          studied structural engineering and was exposed to basic programming
-          using MatLab and OpenSees. While I had enjoyed the little programming in the school curriculum, I stayed the
-          course and graduated with a degree in structural engineering. I went
-          on to work at a structural engineering firm in LA for four years. Over the last four years, I worked on dozens of
-          buildings, got my professional engineering license, and actually
-          dabbled a bit in visual programming. My efforts were part of my firm's Advanced Tech initiative to automate design
-          processes, where I reaffirmed my enjoyment of programming.
-        </p>
-        <p>
-          As I entered my fourth year in the structural engineering profession, I began to reevaluate my career and where I
-          wanted to be in the next few years.
-          Software engineering came to mind, so I quit my job and applied to Rithm School to officially begin my transition
-          to becoming a fullstack engineer. So far, I've participated in
-          a few free workshops and learned some JavaScript fundamentals, designed a simple webpage (you're looking at it!)
-          with HTML and CSS, and built a card-based memory game.
-          I'm ecstatic for this next chapter in my career and am eager to see what else I can create. Stay tuned for more
-          from me!
-        </p>
+      <div className="about-section">
+        <div className="about-paragraph">
+          <p>Hello! I'm Raytene, a software engineer based in Los Angeles. My background
+            is in structural engineering, but I discovered a new passion for programming.
+            I decided to attend Rithm School to begin my career in software engineering,
+            and it was one of the best decisions I've made. Some of the projects I've
+            built can be found below.
+          </p>
+          <p>Besides learning to code, I've also been spending my time learning to
+            crochet, rollerblade, and cook new recipes.
+          </p>
+        </div>
+        <div className="skills-section">
+          <h5><span>My Technical Skills</span></h5>
+          <StyledSkillsCard>
+            {skills.map(type => <SkillsList skills={type} key={type.name} />)}
+          </StyledSkillsCard>
+        </div>
       </div>
     </StyledSectionRight>
   );
