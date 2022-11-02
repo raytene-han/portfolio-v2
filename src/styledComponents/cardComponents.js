@@ -251,15 +251,6 @@ const StyledProjectInfoCard = styled.div`
 
 `;
 
-const StyledContactCard = styled.div`
-  a {
-    margin: 2em;
-  }
-
-  img {
-    width: 2.5em;
-  }
-`;
 
 
 
@@ -268,5 +259,5 @@ export {
   StyledSectionLeft,
   StyledSectionRight,
   StyledTabsCard,
-  StyledProjectInfoCard,
-  StyledContactCard };
+  StyledProjectInfoCard
+ };
