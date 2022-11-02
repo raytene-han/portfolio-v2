@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
-import { Navbar, Logo, StyledHashLink, StyledLogoLink, StyledHamburgerMenu, StyledHamburgerMenuItems } from "../styledComponents/navComponents";
-// import '../App.css';
+import { Navbar, StyledHashLink, StyledLogoLink, StyledHamburgerMenu, StyledHamburgerMenuItems } from "../styledComponents/navComponents";
+
 import { motion } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
+
+import styled from "styled-components";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 
+import debounce from "../utils/debounce";
 /** Navigation Component
  *
  */
@@ -58,23 +61,81 @@ const sideNavVariants = {
 
 const menuLinks = ["about", "portfolio", "history", "contact"];
 
+const StyledNavBar = styled.div`
+  background: var(--accent);
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1;
+  box-sizing: border-box;
+	transition: 0.4s ease-in-out;
+  height: 4em;
+
+
+  @media (max-width: 768px) {
+    .menu {
+      display: none;
+    }
+  }
+`;
+
+const StyledSideNav = styled.aside`
+  div {
+    position: fixed;
+    top: 0;
+    width: 50vw;
+    max-width: 18em;
+    height: 100vh;
+    margin-left: max(50vw, calc(100% - 18em));
+    background: var(--accent);
+    z-index: 2;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    padding-top: 20vh;
+  }
+`;
+
 function Navigation() {
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
   const [isExpanded, setIsExpanded] = useState(false);
   const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
 
-  function toggleMenu() {
-    setIsExpanded(() => !isExpanded);
-  }
+  const handleScroll = debounce(() => {
+    const currentScrollPos = window.pageYOffset;
+
+    setIsVisible((prevScrollPos > currentScrollPos
+      && prevScrollPos - currentScrollPos > 70) || currentScrollPos < 10);
+
+    setPrevScrollPos(currentScrollPos);
+  }, 100);
 
   useEffect(() => {
     if (isDesktop) {
       setIsExpanded(false);
     }
-  }, [isDesktop]);
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isDesktop, prevScrollPos, handleScroll]);
+
+  function toggleMenu() {
+    setIsExpanded(() => !isExpanded);
+  }
+
+  const navbarStyle = {
+    top: isVisible ? '0' : '-4em',
+    boxShadow: window.pageYOffset === 0 ?
+      'none' :
+      'rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px',
+  };
 
   return (
     <>
-      <div className="navbar">
+      <StyledNavBar
+        style={navbarStyle}>
         <Navbar>
           <motion.div
             variants={sideNavVariants}
@@ -103,7 +164,6 @@ function Navigation() {
                   hashSpy={true}
                   offset={20}
                   data-text={link}
-                  className="menu-link"
                 >
                   {link}
                 </StyledHashLink>
@@ -111,40 +171,39 @@ function Navigation() {
             ))}
           </motion.ul>
         </Navbar>
-      </div>
+      </StyledNavBar>
       <StyledHamburgerMenu onClick={toggleMenu}>
-        <p><FontAwesomeIcon icon={isExpanded ? faX : faBars} /></p>
+        <FontAwesomeIcon icon={isExpanded ? faX : faBars} />
       </StyledHamburgerMenu>
-
-
-      <motion.aside className="hamburger"
-        variants={sideNavVariants}
-        initial="initial"
-        animate={isExpanded ? "open" : "closed"}
-        transition={{ duration: .7 }}
-      >
-        <StyledHamburgerMenuItems>
-          <ul>
-            {menuLinks.map(link => (
-              <li key={link}>
-                <StyledHashLink
-                  activeClass="active"
-                  to={link}
-                  smooth={true}
-                  spy={true}
-                  hashSpy={true}
-                  offset={30}
-                  data-text={link}
-                  className="menu-link"
-                  onClick={() => { setIsExpanded(false); }}
-                >
-                  {link}
-                </StyledHashLink>
-              </li>
-            ))}
-          </ul>
-        </StyledHamburgerMenuItems>
-      </motion.aside>
+      <StyledSideNav>
+        <motion.div
+          variants={sideNavVariants}
+          initial="initial"
+          animate={isExpanded ? "open" : "closed"}
+          transition={{ duration: .7 }}
+        >
+          <StyledHamburgerMenuItems>
+            <ul>
+              {menuLinks.map(link => (
+                <li key={link}>
+                  <StyledHashLink
+                    activeClass="active"
+                    to={link}
+                    smooth={true}
+                    spy={true}
+                    hashSpy={true}
+                    offset={30}
+                    data-text={link}
+                    onClick={() => { setIsExpanded(false); }}
+                  >
+                    {link}
+                  </StyledHashLink>
+                </li>
+              ))}
+            </ul>
+          </StyledHamburgerMenuItems>
+        </motion.div>
+      </StyledSideNav>
     </>
   );
 }
