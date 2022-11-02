@@ -1,11 +1,16 @@
 import { useRef } from "react";
+import { StyledHashLink } from "../styledComponents/navComponents";
 import { useInView } from "framer-motion";
 
 import { Title } from "../styledComponents/textComponents";
 import { StyledSectionRight } from "../styledComponents/cardComponents";
-import "./About.css";
+
 import styled from "styled-components";
 import SkillsList from "./TechnicalSkills";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHandPointer } from "@fortawesome/free-solid-svg-icons";
+
 const skills = [
   {
     name: "Languages",
@@ -25,17 +30,44 @@ const skills = [
   }
 ];
 
-const StyledSkillsCard = styled.section`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+const StyledAboutSection = styled.section`
+  h5 {
+      width: 90%;
+      text-align: center;
+      border-bottom: 1px solid var(--accent);
+      line-height: 0.1em;
+      margin: 1em auto;
+      color: var(--dark);
+  }
+
+  h5 span {
+      background: var(--light);
+      padding: 0 10px;
+  }
 `;
 
-const StyledAboutSection = styled.div`
-  display: flex;
-  flex-direction: row;
-`
+const StyledAboutArticle = styled.article`
+  background: var(--accent);
+  padding: 0.5em 1em;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  color: var(--darkest);
+  margin-bottom: 2em;
 
+  p {
+    margin: 0.5em 0;
+  }
+`;
+
+const StyledSkillsSection = styled.section`
+  margin-left: auto;
+  margin-right: auto;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+`;
 
 function About() {
   const ref = useRef(null);
@@ -47,30 +79,47 @@ function About() {
     transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.25s"
   };
 
+  const pointerStyle = {
+    padding: "0 1em",
+  };
+
   return (
     <StyledSectionRight
       ref={ref}
       style={scrollIntoView}>
       <Title> About Me </Title>
-      <div className="about-section">
-        <div className="about-paragraph">
+      <StyledAboutSection>
+        <StyledAboutArticle>
           <p>Hello! I'm Raytene, a software engineer based in Los Angeles. My background
-            is in structural engineering, but I discovered a new passion for programming.
+            is in structural engineering, but I discovered a new passion for programming
+            at my last job.
             I decided to attend Rithm School to begin my career in software engineering,
-            and it was one of the best decisions I've made. Some of the projects I've
-            built can be found below.
+            and it was one of the best decisions I've made!
+          </p>
+          <p>Check out some of the projects I've built below.
+            <StyledHashLink
+              style={pointerStyle}
+              activeClass="active"
+              to="portfolio"
+              smooth={true}
+              spy={true}
+              hashSpy={true}
+              offset={20}
+              data-text="portfolio">
+              <FontAwesomeIcon icon={faHandPointer} style={{ transform: "rotate(180deg)" }} />
+            </StyledHashLink>
           </p>
           <p>Besides learning to code, I've also been spending my time learning to
             crochet, rollerblade, and cook new recipes.
           </p>
-        </div>
-        <div className="skills-section">
+        </StyledAboutArticle>
+        <StyledSkillsSection>
           <h5><span>My Technical Skills</span></h5>
-          <StyledSkillsCard>
+          <div>
             {skills.map(type => <SkillsList skills={type} key={type.name} />)}
-          </StyledSkillsCard>
-        </div>
-      </div>
+          </div>
+        </StyledSkillsSection>
+      </StyledAboutSection>
     </StyledSectionRight>
   );
 }

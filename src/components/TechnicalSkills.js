@@ -24,15 +24,31 @@ const StyledSkillCard = styled.div`
     margin: 0;
     background: var(--accent);
     text-align: center;
+    width: 100%;
   }
 
+
+
+
+  @media (max-width: 720px) {
+    width: clamp(8rem, -3.1273rem + 32.7273vw, 11.6rem);
+    ul {
+      padding: 0.5em 0 0 0.5em;
+    }
+  }
+  @media (max-width: 543px) {
+    width: clamp(8rem, -3.3554rem + 49.3714vw, 13.4rem);
+    ul {
+      padding: 0.5em 0 0 0.5em;
+    }
+  }
   @media (max-width: 368px) {
     width: clamp(6.4rem, -4.2667rem + 53.3333vw, 8rem);
     ul {
       padding: 0.5em 0 0 0.5em;
     }
   }
-`;
+  `;
 
 
 function SkillsList({ skills }) {
