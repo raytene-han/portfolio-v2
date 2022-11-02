@@ -58,6 +58,23 @@ const sideNavVariants = {
   }
 };
 
+const logoVariants = {
+  open: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "tween",
+      delay: 0.5
+    }
+  },
+  closed: {
+    opacity: 0,
+    x: "-100%",
+    transition: {
+      type: "tween",
+    }
+  }
+};
 
 const menuLinks = ["about", "portfolio", "history", "contact"];
 
@@ -138,7 +155,7 @@ function Navigation() {
         style={navbarStyle}>
         <Navbar>
           <motion.div
-            variants={sideNavVariants}
+            variants={logoVariants}
             initial="closed"
             animate="open"
           >

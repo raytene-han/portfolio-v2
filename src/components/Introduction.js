@@ -115,8 +115,8 @@ function Introduction() {
           <h3>Full stack developer. Cat enthusiast.</h3>
           <p>I'm a full stack web developer with a background in structural engineering.</p>
           <div>
-            <img className="narrow" src="/IMG_0225.jpeg" alt="Raytene Han" />
-            <a href="/files/myfile.pdf" target="_blank" download className="resume-button">
+            <img className="narrow" src="/raytene.jpeg" alt="Raytene Han" />
+            <a href="/Raytene_Han_Resume_2022.pdf" target="_blank" download className="resume-button">
               <p>Download Resume</p>
               <FontAwesomeIcon icon={faCloudArrowDown} />
             </a>
@@ -128,7 +128,7 @@ function Introduction() {
             </a>
           </div>
         </article>
-        <img className="wide" src="/IMG_0225.jpeg" alt="Raytene Han" />
+        <img className="wide" src="/raytene.jpeg" alt="Raytene Han" />
       </StyledIntroSection>
     </StyledSectionLeft>
   );

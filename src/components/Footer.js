@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 
-const Copyright = styled.footer`
+const StyledFooter = styled.footer`
   margin-bottom: 1em;
   text-align: center;
   color: var(--dark);
@@ -13,29 +11,24 @@ const Copyright = styled.footer`
 
   p {
     margin: 0;
-    margin-top: 1em;
   }
+
   a {
-    color: var(--darkest);
-    margin: 0 0.5em;
+    color: var(--dark);
+    font-size: 0.5em;
   }
-  a:hover {
-    color: var(--darkeraccent);
-  }
+
 `;
 
 
 function Footer() {
   return (
-    <Copyright>
-      <a href="https://linkedin.com/in/raytene-han" className="social">
-        <FontAwesomeIcon icon={faLinkedin} />
-      </a>
-      <a href="https://github.com/raytene-han" className="social">
-        <FontAwesomeIcon icon={faGithub} />
-      </a>
+    <StyledFooter>
       <p>©  Raytene  Han  2022</p>
-    </Copyright>
+      <a href="https://www.flaticon.com/free-icons/cat"
+        title="cat icons"
+        >Cat icons created by Freepik - Flaticon</a>
+    </StyledFooter>
   );
 }
 

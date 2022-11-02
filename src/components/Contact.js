@@ -1,23 +1,44 @@
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useInView } from "framer-motion";
 
 import { Title } from "../styledComponents/textComponents";
-import { StyledContactCard, StyledSectionLeft } from "../styledComponents/cardComponents";
+import { StyledSectionLeft } from "../styledComponents/cardComponents";
+import styled from "styled-components";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 
-const links = [
-  {
-    href: "https://github.com/raytene-han",
-    src: "/github-icon.png",
-    alt: "github"
-  },
-  {
-    href: "https://linkedin.com/in/raytene-han",
-    src: "/linkedin-icon.png",
-    alt: "linkedin"
+const StyledContactSection = styled.section`
+  margin-bottom: 1em;
+  text-align: right;
+  color: var(--dark);
+  height: fit-content;
+  padding: 0.5em;
+  width: 704px;
+
+  h1 {
+    text-align: left;
   }
-];
 
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: var(--darkest);
+    margin: 0 0.5em;
+    font-size: 1.5em;
+  }
+
+  a:hover {
+    color: var(--darkeraccent);
+  }
+
+  a.attribution {
+    font-size: 0.5em;
+    color: var(--dark);
+  }
+`;
 
 function Contact() {
   const ref = useRef(null);
@@ -33,15 +54,16 @@ function Contact() {
     <StyledSectionLeft
       ref={ref}
       style={scrollIntoView}>
-      <StyledContactCard>
+      <StyledContactSection>
         <Title> Connect with Me </Title>
-        {links.map(link => (
-          <a href={link.href} key={link.alt}>
-            <motion.img src={link.src} alt={link.alt} key={link.alt}
-              whileHover={{ scale: 1.2 }} />
-          </a>
-        ))}
-      </StyledContactCard>
+        <a href="https://linkedin.com/in/raytene-han" className="social">
+        <FontAwesomeIcon icon={faLinkedin} />
+      </a>
+      <a href="https://github.com/raytene-han" className="social">
+        <FontAwesomeIcon icon={faGithub} />
+      </a>
+      <p>Email coming soon!</p>
+      </StyledContactSection>
     </StyledSectionLeft>
   );
 }

@@ -56,6 +56,17 @@ const work = [
   }
 ];
 
+const StyledTitleContainer = styled.div`
+  text-align: right;
+  position: relative;
+  top: -7em;
+
+  @media (max-width:645px) {
+    top: 0;
+    width: 95%;
+  }
+`;
+
 const StyledTimeline = styled.div`
 	width:320px;
 	color:var(--dark);
@@ -119,16 +130,6 @@ const StyledTimeline = styled.div`
     background-color: var(--accent);
     box-shadow: 0px 0px 10px 2px var(--accent);
   }
-
-  @media (max-width:300px) {
-    width: 100%;
-    padding: 30px 5px 30px 10px;
-
-    ul li article h3 {
-      color: #34ace0;
-      font-size: 15px;
-    }
-  }
 `;
 
 function Experience() {
@@ -145,7 +146,9 @@ function Experience() {
     <StyledSectionRight
       ref={ref}
       style={scrollIntoView}>
-      <Title>History</Title>
+      <StyledTitleContainer>
+        <Title>History</Title>
+      </StyledTitleContainer>
       <StyledTimeline>
         <ul>
           {work.map(company => (
@@ -155,7 +158,7 @@ function Experience() {
                 {company.details.map(detail => (
                   <div key={detail.description}>
                     <span>{detail.dates}</span>
-                    <p>{detail.position ? detail.position : "" }</p>
+                    <p>{detail.position ? detail.position : ""}</p>
                     <p>{detail.description}</p>
                   </div>
                 ))}
