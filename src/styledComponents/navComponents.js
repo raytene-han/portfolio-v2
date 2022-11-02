@@ -12,7 +12,7 @@ const Navbar = styled.nav`
   // position: sticky;
   top: 0;
   z-index: 1;
-  height: 3.5em;
+  height: 4em;
   max-width: 968px;
   margin-left: auto;
   margin-right: auto;
@@ -25,22 +25,22 @@ const Navbar = styled.nav`
 `;
 
 const StyledHashLink = styled(Link)`
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  color: var(--darkest);
+  text-decoration: none;
+
   &:hover{
     font-weight: bold;
     cursor: pointer;
     color: var(--darkeraccent);
   };
 
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem 1rem;
-  color: var(--dark);
-  text-decoration: none;
-
-  // @media (max-width: 768px) {
-  //   display: none;
-  // }
+  &:active{
+    transform: translateY(2px);
+  }
 `;
 
 const StyledLogoLink = styled(Link)`
@@ -51,27 +51,24 @@ const StyledLogoLink = styled(Link)`
   color: var(--dark);
   text-decoration: none;
   font-family: 'Ms Madi', cursive;
-  font-size: 2em;
+  font-size: 2.5em;
   cursor: pointer;
-  text-shadow: 2px 2px var(--accent);
-`;
-
-
-const Logo = styled.div`
-
+  text-shadow: 2px 2px var(--darkeraccent);
 `;
 
 const StyledHamburgerMenu = styled.button`
-  /* padding: 1em; */
+  width: 3em;
+  height: 3em;
   font-size: 1em;
   border: none;
-  background: none;
+  border-radius: 50%;
+  background: var(--accent);
   color: var(--dark);
   cursor: pointer;
   display: none;
   position: fixed;
-  top: 0.25em;
-  right: 1em;
+  top: 0.5em;
+  right: 0.5em;
   z-index:5;
 
   &:hover {
@@ -97,4 +94,4 @@ li {
 }
 `;
 
-export { Navbar, StyledHashLink, StyledLogoLink, Logo, StyledHamburgerMenu, StyledHamburgerMenuItems };
+export { Navbar, StyledHashLink, StyledLogoLink, StyledHamburgerMenu, StyledHamburgerMenuItems };

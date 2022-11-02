@@ -1,8 +1,8 @@
-import { Footer } from "../styledComponents/textComponents";
+import Footer from "./Footer";
 import Introduction from "./Introduction";
 import About from "./About";
 import Experience from "./Timeline";
-import TabCard from "./TabCard";
+import Portfolio from "./Portfolio";
 import Contact from "./Contact";
 import { Container } from "../styledComponents/cardComponents";
 
@@ -59,7 +59,7 @@ function Homepage() {
         <About />
       </Container>
       <Container id="portfolio">
-        <TabCard tabs={projects} />
+        <Portfolio tabs={projects} />
       </Container>
       <Container id="history">
         <Experience />
@@ -67,7 +67,7 @@ function Homepage() {
       <Container id="contact">
         <Contact />
       </Container>
-      <Footer>©  Raytene  Han  2022</Footer>
+      <Footer />
     </>
   );
 }

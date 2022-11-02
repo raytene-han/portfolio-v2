@@ -11,22 +11,4 @@ const Title = styled.h1`
   min-width: 6em;
 `;
 
-const Subtitle = styled.h3`
-  font-size: clamp(1.2rem, 1.0224rem + 0.7401vw, 1.5rem);
-  text-align: left;
-  color: var(--dark);
-  display: block;
-  margin-top: 0;
-  margin-bottom: 0.5em;
-`;
-
-const Footer = styled.footer`
-  margin-bottom: 1em;
-  text-align: center;
-  color: var(--dark);
-`;
-
-
-
-
-export { Title, Subtitle, Footer };
+export { Title };

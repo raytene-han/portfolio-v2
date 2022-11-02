@@ -21,7 +21,6 @@ function App() {
 
   return (
     <div className="App">
-      <div className="test-box"></div>
       <BrowserRouter>
         <Navigation />
         <RoutesList />

@@ -32,7 +32,7 @@ const StyledSectionRight = styled.section`
 
 const StyledTabsCard = styled.div`
   width: 100%;
-  height: clamp(23.125rem, 1.3882rem + 45.2261vw, 28.75rem);
+  height: clamp(24.375rem, 0.3750rem + 50.0000vw, 27.5rem);
   border-radius: 0;
   background: var(--lightest);
   overflow: hidden;
@@ -86,8 +86,6 @@ const StyledTabsCard = styled.div`
       background: var(--dark);
       color: var(--accent);
     }
-
-
   }
 
   main {
@@ -98,6 +96,15 @@ const StyledTabsCard = styled.div`
     flex-grow: 1;
     user-select: none;
     background: var(--lightest);
+  }
+
+  .underline {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--darkeraccent);
   }
 
   @media (max-width: 768px) {
@@ -142,7 +149,7 @@ const StyledProjectInfoCard = styled.div`
 
   p {
     display: flex;
-    color: var(--dark);
+    color: var(--darkest);
     font-size: 0.5em;
   }
 
@@ -164,7 +171,7 @@ const StyledProjectInfoCard = styled.div`
   a {
     text-decoration: none;
     padding: 0em 0.3em;
-    color: var(--dark);
+    color: var(--darkest);
     font-size: 0.6em;
     margin-bottom: 5em;
     margin-left: 0.5em;
@@ -172,7 +179,7 @@ const StyledProjectInfoCard = styled.div`
   }
 
   a:visited {
-    color: var(--dark);
+    color: var(--darkest);
   }
 
   a:hover {
@@ -190,7 +197,7 @@ const StyledProjectInfoCard = styled.div`
     padding: 0.5em;
     position: absolute;
     width: 300px;
-    left: min(-156px, (100vw - 868px) / 2 - 50px);
+    left: min(-152px, (100vw - 868px) - 74px);
   }
 
   .project-description p {
