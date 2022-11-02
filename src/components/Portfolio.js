@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+
 import { Title } from "../styledComponents/textComponents";
 import {
   StyledSectionLeft,
@@ -12,8 +13,7 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 
-
-function TabsCard({ tabs }) {
+function Portfolio({ tabs }) {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -29,11 +29,11 @@ function TabsCard({ tabs }) {
       ref={ref}
       style={scrollIntoView}
     >
-      <Title> Portfolio </Title>
+      <Title>Portfolio</Title>
       <StyledTabsCard>
         <nav>
           <ul className="tabs">
-            {tabs.map((tab, idx) => (
+            {tabs.map((tab) => (
               <li key={tab.name}
                 className={`tabs ${tab.name === selectedTab.name ? "selected" : ""}`}
                 onClick={() => setSelectedTab(tab)}
@@ -50,7 +50,6 @@ function TabsCard({ tabs }) {
                 ) : null}
               </li>
             ))}
-
           </ul>
         </nav>
         <main>
@@ -63,17 +62,20 @@ function TabsCard({ tabs }) {
               transition={{ duration: 0.2 }}
             >
               <StyledProjectInfoCard>
-                {/* <h3>{selectedTab ? selectedTab : "😋"}</h3> */}
-                {/* <div> */}
-                  <img src={`/${selectedTab.name.toLowerCase()}.png`} alt={`screenshot of ${selectedTab}`} />
-                {/* </div> */}
+                <img
+                  src={`/${selectedTab.name.toLowerCase()}.png`}
+                  alt={`screenshot of ${selectedTab} application demo`} />
                 <div>
                   <div className="project-description">
                     <p>{selectedTab.description}</p>
                   </div>
                   <div className="links">
-                    <a href={selectedTab.demo} title="Live Demo"><FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
-                    <a href={selectedTab.github} title="Github"><FontAwesomeIcon icon={faGithub} /></a>
+                    <a href={selectedTab.demo} title="Live Demo">
+                      <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                    </a>
+                    <a href={selectedTab.github} title="Github">
+                      <FontAwesomeIcon icon={faGithub} />
+                    </a>
                   </div>
                   <ul>
                     {selectedTab.technologies.map(tech => (
@@ -86,7 +88,6 @@ function TabsCard({ tabs }) {
                     ))}
                   </ul>
                 </div>
-
               </StyledProjectInfoCard>
             </motion.div>
           </AnimatePresence>
@@ -98,4 +99,4 @@ function TabsCard({ tabs }) {
 
 
 
-export default TabsCard;
+export default Portfolio;
