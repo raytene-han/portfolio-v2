@@ -2,24 +2,29 @@ import { useRef } from "react";
 import { useInView } from "framer-motion";
 
 import { Title } from "../styledComponents/textComponents";
-import { StyledSectionLeft } from "../styledComponents/cardComponents";
 import styled from "styled-components";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const StyledContactSection = styled.section`
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 1em;
   text-align: right;
   color: var(--dark);
   height: fit-content;
   padding: 0.5em;
-  width: 704px;
+  width: 446px;
 
   h1 {
     text-align: left;
   }
 
+  div {
+    text-align: center;
+  }
   p {
     margin: 0;
   }
@@ -27,16 +32,15 @@ const StyledContactSection = styled.section`
   a {
     color: var(--darkest);
     margin: 0 0.5em;
-    font-size: 1.5em;
+    font-size: 2em;
   }
 
   a:hover {
     color: var(--darkeraccent);
   }
 
-  a.attribution {
-    font-size: 0.5em;
-    color: var(--dark);
+  @media (max-width: 496px) {
+    width: 90%;
   }
 `;
 
@@ -51,20 +55,24 @@ function Contact() {
   };
 
   return (
-    <StyledSectionLeft
+
+    <StyledContactSection
       ref={ref}
       style={scrollIntoView}>
-      <StyledContactSection>
-        <Title> Connect with Me </Title>
+      <Title> Connect with Me </Title>
+      <div>
         <a href="https://linkedin.com/in/raytene-han" className="social">
-        <FontAwesomeIcon icon={faLinkedin} />
-      </a>
-      <a href="https://github.com/raytene-han" className="social">
-        <FontAwesomeIcon icon={faGithub} />
-      </a>
-      <p>Email coming soon!</p>
-      </StyledContactSection>
-    </StyledSectionLeft>
+          <FontAwesomeIcon icon={faLinkedin} />
+        </a>
+        <a href="https://github.com/raytene-han" className="social">
+          <FontAwesomeIcon icon={faGithub} />
+        </a>
+        <a href="mailto:hello@raytene.me">
+          <FontAwesomeIcon icon={faEnvelope} />
+        </a>
+      </div>
+    </StyledContactSection>
+
   );
 }
 
