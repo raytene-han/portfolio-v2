@@ -28,7 +28,8 @@ const projects = [
       "Bootstrap",
       "Flask",
       "SQLAlchemy",
-      "PostgreSQL"
+      "PostgreSQL",
+      "AWS S3"
     ],
     demo: "https://sharebnb-rh.surge.sh",
     github: "https://github.com/ndrewjensen/share-bnb-frontend"
@@ -45,6 +46,17 @@ const projects = [
     ],
     demo: "https://warblerrh.herokuapp.com",
     github: "https://github.com/raytene-han/flask-warbler"
+  },
+  {
+    name: "Portfolio",
+    description: "My personal website that I built from scratch.",
+    technologies: [
+      "React",
+      "Styled Components",
+      "Framer Motion",
+      "React Scroll"
+    ],
+    github: "https://github.com/raytene-han/portfolio-v2"
   }
 ]
 
