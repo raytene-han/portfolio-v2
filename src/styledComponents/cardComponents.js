@@ -32,13 +32,15 @@ const StyledSectionRight = styled.section`
 
 const StyledTabsCard = styled.div`
   width: 100%;
-  height: clamp(24.375rem, 0.3750rem + 50.0000vw, 27.5rem);
+  height: clamp(23rem, -0.0400rem + 48.0000vw, 26rem);
   border-radius: 0;
   background: var(--lightest);
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   display: flex;
   flex-direction: column;
+
+
 
   nav {
     background: var(--lightest);
@@ -47,6 +49,9 @@ const StyledTabsCard = styled.div`
     border-bottom-right-radius: 0;
     border-bottom: 1px solid #eeeeee;
     height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   ul.tabs {
@@ -57,7 +62,7 @@ const StyledTabsCard = styled.div`
     margin: 0;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
-    font-size: 1.5em;
+    font-size: 1.3em;
   }
 
   li.tabs {
@@ -72,7 +77,7 @@ const StyledTabsCard = styled.div`
     cursor: pointer;
     height: 24px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex: 1;
     min-width: 0;
@@ -107,20 +112,51 @@ const StyledTabsCard = styled.div`
     background: var(--darkeraccent);
   }
 
+  nav div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+
+  nav h3 {
+    font-size: 1.3em;
+    font-weight: normal;
+    color: var(--dark);
+  }
+
+
   @media (max-width: 768px) {
     height: clamp(31.25rem, 8.7500rem + 62.5000vw, 38.75rem);
 
     ul.tabs {
-      font-size: clamp(1rem, 0.7039rem + 1.3158vw, 1.5rem);
+      font-size: clamp(0.7rem, 0.7039rem + 1.3158vw, 1.5rem);
     }
 
     li.tabs {
       padding: 5px 7px;
     }
+
   }
 
   @media (max-width: 576px) {
-    height: clamp(26.5rem, 20.8750rem + 28.1250vw, 31rem);
+    height: clamp(27.25rem, 20.5132rem + 33.6842vw, 31.25rem);
+    ul.tabs {
+      display: none;
+    }
+  }
+
+  @media (max-width: 522px) {
+    height: clamp(27.25rem, 18.4079rem + 44.2105vw, 32.5rem);
+  }
+
+  @media (min-width: 577px) {
+    nav h3 {
+      display: none;
+
+    }
   }
 `;
 
@@ -129,24 +165,58 @@ const StyledProjectInfoCard = styled.div`
   flex-direction: row;
   padding: 0.2em;
   box-sizing: border-box;
+  position: relative;
 
   img {
-    width: 80%;
+    width: 100%;
     border-radius: 10px;
 
+  }
+
+  button {
+    border: none;
+    background: none;
+    color: var(--accent);
+    font-size: 1.2em;
+    position: absolute;
+    height: fit-content;
+    width: fit-content;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+
+    &:hover {
+      color: var(--dark);
+      opacity: 1;
+      cursor: pointer;
+    }
+
+  }
+
+  button.left-arrow {
+    left: 0;
+  }
+  button.right-arrow {
+    right: 0;
   }
 
   div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0em;
+    padding: 0;
     align-items: flex-start;
     justify-content: flex-start;
     position: relative;
     box-sizing: border-box;
   }
 
+  div.image-container {
+    width: 75%;
+    margin: 0;
+    padding: 0;
+
+  }
   p {
     display: flex;
     color: var(--darkest);
@@ -156,7 +226,7 @@ const StyledProjectInfoCard = styled.div`
   ul {
     display: flex;
     flex-direction: column;
-    margin: 0 0.7em;
+    margin: 0 0 0 0.7em;
     padding: 0;
     list-style-type: "∙";
     list-style-position: outside;
@@ -175,7 +245,7 @@ const StyledProjectInfoCard = styled.div`
     font-size: 0.6em;
     margin-bottom: 5em;
     margin-left: 0.5em;
-    margin-top: 1.5em;
+    margin-top: 0.3em;
   }
 
   a:visited {
@@ -193,11 +263,11 @@ const StyledProjectInfoCard = styled.div`
 
   .project-description {
     background: var(--accent);
-    margin: 2em 0.7em;
+    margin: 1.2em 0.7em;
     padding: 0.5em;
     position: absolute;
     width: 300px;
-    left: min(-152px, (100vw - 868px) - 74px);
+    left: min(-110px, (100vw - 868px) - 40px);
   }
 
   .project-description p {
@@ -223,6 +293,10 @@ const StyledProjectInfoCard = styled.div`
       height: fit-content;
       min-width: 0;
       object-fit: cover;
+    }
+
+    div.image-container {
+      width: 100%;
     }
 
     ul {

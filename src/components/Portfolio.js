@@ -9,12 +9,16 @@ import {
 } from "../styledComponents/cardComponents";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowUpRightFromSquare,
+  faCircleArrowLeft,
+  faCircleArrowRight
+} from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 
 function Portfolio({ tabs }) {
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const [tabIdx, setTabIdx] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -23,6 +27,16 @@ function Portfolio({ tabs }) {
     opacity: isInView ? 1 : 0,
     transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.25s"
   };
+
+  const activeTab = tabs[tabIdx];
+
+  function handleRightArrow() {
+    setTabIdx(tabIdx === tabs.length - 1 ? 0 : tabIdx + 1);
+  }
+
+  function handleLeftArrow() {
+    setTabIdx(tabIdx === 0 ? tabs.length - 1 : tabIdx - 1);
+  }
 
   return (
     <StyledSectionLeft className="tabs"
@@ -33,13 +47,13 @@ function Portfolio({ tabs }) {
       <StyledTabsCard>
         <nav>
           <ul className="tabs">
-            {tabs.map((tab) => (
+            {tabs.map((tab, idx) => (
               <li key={tab.name}
-                className={`tabs ${tab.name === selectedTab.name ? "selected" : ""}`}
-                onClick={() => setSelectedTab(tab)}
+                className={`tabs ${tab.name === activeTab.name ? "selected" : ""}`}
+                onClick={() => setTabIdx(idx)}
               >
                 {tab.name}
-                {tab.name === selectedTab.name ? (
+                {tab.name === activeTab.name ? (
                   <motion.div className="underline"
                     layoutId="underline"
                     transition={{
@@ -51,36 +65,48 @@ function Portfolio({ tabs }) {
               </li>
             ))}
           </ul>
+          <div>
+            <h3>{activeTab.name}</h3>
+          </div>
         </nav>
         <main>
           <AnimatePresence exitBeforeEnter>
             <motion.div
-              key={selectedTab.name ? selectedTab.name : "empty"}
+              key={activeTab.name ? activeTab.name : "empty"}
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -10, opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
               <StyledProjectInfoCard>
-                <img
-                  src={`/${selectedTab.name.toLowerCase()}.png`}
-                  alt={`screenshot of ${selectedTab} application demo`} />
+                <div className="image-container">
+                  <button className="left-arrow" onClick={handleLeftArrow}>
+                    <FontAwesomeIcon icon={faCircleArrowLeft} />
+                  </button>
+                  <img
+                    src={`/${activeTab.name.toLowerCase()}.png`}
+                    alt={`screenshot of ${activeTab.name} application demo`} />
+                  <button className="right-arrow" onClick={handleRightArrow}>
+                    <FontAwesomeIcon icon={faCircleArrowRight} />
+                  </button>
+                </div>
                 <div>
                   <div className="project-description">
-                    <p>{selectedTab.description}</p>
+                    <p>{activeTab.description}</p>
                   </div>
                   <div className="links">
-                    <a href={selectedTab.demo} title="Live Demo">
-                      <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                    </a>
-                    <a href={selectedTab.github} title="Github">
+                    {activeTab.demo &&
+                      <a href={activeTab.demo} title={`Live Demo for ${activeTab.name}`}>
+                        <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                      </a>}
+                    <a href={activeTab.github} title={`Github Repo for ${activeTab.name}`}>
                       <FontAwesomeIcon icon={faGithub} />
                     </a>
                   </div>
                   <ul>
-                    {selectedTab.technologies.map(tech => (
+                    {activeTab.technologies.map(tech => (
                       <li
-                        key={`${selectedTab.name}-${tech}`}
+                        key={`${activeTab.name}-${tech}`}
                         className="project-tech"
                       >
                         {tech}
