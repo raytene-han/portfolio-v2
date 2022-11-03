@@ -76,17 +76,21 @@ function Portfolio({ tabs }) {
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -10, opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.3 }}
             >
               <StyledProjectInfoCard>
                 <div className="image-container">
-                  <button className="left-arrow" onClick={handleLeftArrow}>
+                  <button className="left-arrow"
+                    onClick={handleLeftArrow}
+                    title="carousel left arrow">
                     <FontAwesomeIcon icon={faCircleArrowLeft} />
                   </button>
                   <img
-                    src={`/${activeTab.name.toLowerCase()}.png`}
+                    src={`/${activeTab.name.toLowerCase()}.webp`}
                     alt={`screenshot of ${activeTab.name} application demo`} />
-                  <button className="right-arrow" onClick={handleRightArrow}>
+                  <button className="right-arrow"
+                    onClick={handleRightArrow}
+                    title="carousel right arrow">
                     <FontAwesomeIcon icon={faCircleArrowRight} />
                   </button>
                 </div>
